@@ -3,7 +3,7 @@ const Banner = () => {
   return (
     <div className="">
       <div className="carousel w-full lg:h-[600px]">
-        <div id="slide1" className="carousel-item relative w-full">
+        <div className="carousel-item relative w-full">
           <img
             src={banner}
             className="w-full object-cover"
@@ -11,7 +11,7 @@ const Banner = () => {
           <div className="absolute h-full w-full  left-0 top-0 bg-gradient-to-r from-[#439ae7de] to-[#adabab2c] ">
             <div className=" text-white space-y-3 md:space-y-7 w-2/4 ml-5 mt-10 md:ml-16 md:mt-28 ">
               <h2 className=" text-xl md:text-4xl lg:text-6xl font-bold text-black">
-                {" "}
+                
                 Find Your <span className=' text-[#3994e4]'>Dream Job</span> <br /> Here Easy & Fast
               </h2>
               <p className='text-black text-xs lg:text-base '>
