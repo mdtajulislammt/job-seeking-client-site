@@ -19,6 +19,8 @@ import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Addajobs from './Pages/Addajobs/Addajobs';
 import PrivedRoute from './PrivedRoute/PrivedRoute';
+import AllJobDetails from './Pages/AllJobDetails/AllJobDetails';
+import Jobssection from './Pages/Home/Jobssection';
 
  
  const router = createBrowserRouter([
@@ -42,6 +44,11 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
     {
       path:'/alljobs',
       element:<AllJobs></AllJobs>
+    },
+    {
+      path:'/jobsCategory/:id',
+      element:<PrivedRoute><AllJobDetails></AllJobDetails></PrivedRoute>,
+       loader: ()=> fetch('http://localhost:5000/jobCetagory')
     },
     {
       path:'/appliedjobs',

@@ -4,6 +4,7 @@ const Banner = () => {
     <div className="">
       <div className="carousel w-full lg:h-[600px]">
         <div className="carousel-item relative w-full">
+          
           <img
             src={banner}
             className="w-full object-cover"
