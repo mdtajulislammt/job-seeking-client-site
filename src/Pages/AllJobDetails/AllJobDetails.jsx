@@ -58,10 +58,11 @@ const AllJobDetails = () => {
                 </div>
                 <div>
                   <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {deadline}</span></p>
+                  <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Posting Date: {postingDate}</span></p>
                 </div>
                 </div>
               </div>
-              <span className=" bg-[#3994e467] hidden md:block md:-mt-[110px] md:-mr-5 lg:-mt-[110px] lg:-mr-5 -mt-[165px] -mr-5 text-5xl rounded-md p-2"><AiOutlineHeart /></span>
+              <span className=" bg-[#3994e467] hidden md:block md:-mt-[145px] md:-mr-5 lg:-mt-[128px] lg:-mr-5 -mt-[165px] -mr-5 text-5xl rounded-md p-2"><AiOutlineHeart /></span>
               </div>
               <h1 className=" text-xl font-semibold mt-8">
                   {description}

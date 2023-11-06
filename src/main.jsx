@@ -44,7 +44,7 @@ import Jobssection from './Pages/Home/Jobssection';
     {
       path:'/alljobs',
       element:<AllJobs></AllJobs>,
-      loader: ()=> fetch('http://localhost:5000/jobCetagory')
+      // loader: ()=> fetch('http://localhost:5000/jobCetagory')
     },
     {
       path:'/alljobs/:id',
