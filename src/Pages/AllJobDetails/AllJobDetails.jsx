@@ -18,6 +18,8 @@ const AllJobDetails = () => {
      const [JobCard, setJobCard] = useState({});
      const jobsCategory = useJobsCategoryData();
      const {name,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description} = JobCard || {};
+     const currentTime = Date.now();
+     const specificDate = new Date(deadline);
      useEffect(()=>{
           const findJobData = jobsCategory?.find(job =>job._id == id)
           setJobCard(findJobData)
@@ -28,14 +30,34 @@ const AllJobDetails = () => {
       e.preventDefault()
       const form = e.target;
       const email = form.email.value;
-      const name = user.displayName;
+      const name = form.name.value;
       const link = form.link.value;
       const details = form.details.value;
-      const postingDate = Date.now();
+      // const img = img;
+      // const jobTitle = jobTitle;
       // const category = category;
+      // const location = location;
+      // const postingDate = postingDate;
+      // const deadline = deadline;
+      // const salaryRange = salaryRange;
+      // const applicantsNumber = applicantsNumber;
+      // const description = description;
+      
 
-      const newJobApply = {email, name, link, details}
+      const newJobApply = {email, name, link, details,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description}
       console.log(newJobApply);
+
+      if(currentTime > specificDate.getTime()){
+        Swal.fire({
+          title: "Error !",
+          text: "Your Apply Date Over.",
+          imageWidth: 400,
+          imageHeight: 200,
+          icon: 'error',
+        });
+        document.getElementById('my_modal_4').close();
+        return 
+      }
 
        //server 
      fetch("http://localhost:5000/apply",{
@@ -47,6 +69,7 @@ const AllJobDetails = () => {
  })
  .then(res=>res.json())
      .then(data=>{
+     
       if(data.insertedId){
       Swal.fire({
         title: "Success",
