@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../../assets/alljobsBanner.jpg';
 import { SlCalender } from 'react-icons/sl';
@@ -7,12 +7,27 @@ import { CiMoneyBill } from 'react-icons/ci';
 import { BiTimeFive } from 'react-icons/bi';
 import { ImLocation2 } from 'react-icons/im';
 import useJobsCategoryData from '../../Hooks/useJobsCategoryData';
+import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AllJobs = () => {
      const jobsCategory = useJobsCategoryData()
      const [search, setSearch] = useState('')
      const [searchBtn, setSearchBtn]= useState('');
-
+     const { user} = useContext(AuthContext);
+       
+     const handleDetailsBtn =()=>{
+      if(!user){
+        Swal.fire({
+          title: "Error !",
+          text: "You have to log in first to view details",
+          imageWidth: 400,
+          imageHeight: 200,
+          icon: 'error',
+        });
+        
+      }
+     }
 
     const handleSearch = (searchBtn)=>{
             setSearch(searchBtn)
@@ -88,7 +103,7 @@ const AllJobs = () => {
                            <div className=" ">
                              <div className=" flex items-center gap-2 md:justify-end ">
                                <span className=" bg-[#3994e467] rounded-md p-2"><AiOutlineHeart /></span>
-                             <Link to={`/alljobs/${job._id}`}><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">View Details</button></Link>
+                             <Link to={`/alljobs/${job._id}`} onClick={handleDetailsBtn}><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">View Details</button></Link>
                              </div>
                              <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {job.deadline}</span></p>
                            </div>

@@ -22,7 +22,7 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
 import AllJobDetails from './Pages/AllJobDetails/AllJobDetails';
 import Jobssection from './Pages/Home/Jobssection';
 import JobsectionDeatls from './Pages/Home/JobsectionDeatls';
-import ApplyJobs from './Pages/AllJobs/ApplyJobs';
+
 
  
  const router = createBrowserRouter([
@@ -49,8 +49,9 @@ import ApplyJobs from './Pages/AllJobs/ApplyJobs';
 
     },
     {
-      path:'/alljobs/Job/:id',
-      element:<PrivedRoute><ApplyJobs></ApplyJobs></PrivedRoute>,
+      path:'/jobDetails/:id',
+      element:<PrivedRoute><JobsectionDeatls></JobsectionDeatls></PrivedRoute>,
+      // loader:()=> fetch('http://localhost:5000/apply')
 
     },
     {
@@ -59,7 +60,7 @@ import ApplyJobs from './Pages/AllJobs/ApplyJobs';
     },
     {
       path:'/jobsCategory/:id',
-      element:<PrivedRoute><JobsectionDeatls></JobsectionDeatls></PrivedRoute>,
+      element:<PrivedRoute><AllJobDetails></AllJobDetails></PrivedRoute>,
     },
     {
       path:'/appliedjobs',

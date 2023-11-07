@@ -6,19 +6,19 @@ import { BiTimeFive } from 'react-icons/bi';
 import { CiMoneyBill } from 'react-icons/ci';
 import { ImLocation2 } from 'react-icons/im';
 import { SlCalender } from 'react-icons/sl';
-import useJobsCategoryData from '../../Hooks/useJobsCategoryData';
+import useApplyData from '../../Hooks/useApplyData';
 
 const JobsectionDeatls = () => {
      const {id} = useParams();
      const [JobCard, setJobCard] = useState({});
-     const jobsCategory = useJobsCategoryData();
+     const jobApply = useApplyData();
      const {name,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description} = JobCard || {};
 
      useEffect(()=>{
-          const findJobData = jobsCategory?.find(job =>job._id == id)
+          const findJobData = jobApply?.find(job =>job._id == id)
           setJobCard(findJobData)
 
-     },[id,jobsCategory])
+     },[id,jobApply])
      return (
           <div className='px-8 md:px-14 lg:px-20 dark:bg-[#242323] py-10'>
           <div className=' py-5'>

@@ -1,10 +1,13 @@
+import React from 'react';
+import useJobsCategoryData from '../../Hooks/useJobsCategoryData';
 
 const MyJobs = () => {
-     return (
-          <div>
-               <h2>My Jobs</h2>
-          </div>
-     );
+  const myjobs= useJobsCategoryData()
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default MyJobs;

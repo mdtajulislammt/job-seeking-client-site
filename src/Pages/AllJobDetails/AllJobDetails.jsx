@@ -17,7 +17,7 @@ const AllJobDetails = () => {
      const {id} = useParams();
      const [JobCard, setJobCard] = useState({});
      const jobsCategory = useJobsCategoryData();
-     const {name,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description} = JobCard || {};
+     const {_id,name,email,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description} = JobCard || {};
      const currentTime = Date.now();
      const specificDate = new Date(deadline);
      useEffect(()=>{
@@ -33,19 +33,15 @@ const AllJobDetails = () => {
       const name = form.name.value;
       const link = form.link.value;
       const details = form.details.value;
-      // const img = img;
-      // const jobTitle = jobTitle;
-      // const category = category;
-      // const location = location;
-      // const postingDate = postingDate;
-      // const deadline = deadline;
-      // const salaryRange = salaryRange;
-      // const applicantsNumber = applicantsNumber;
-      // const description = description;
+      const postId = _id;
       
 
-      const newJobApply = {email, name, link, details,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description}
+      const newJobApply = {email, name,postId, link, details,img,jobTitle,category,location,postingDate,deadline,salaryRange,applicantsNumber,description}
       console.log(newJobApply);
+
+      if(user.email === email){
+        return alert('owner not apply')
+      }
 
       if(currentTime > specificDate.getTime()){
         Swal.fire({
