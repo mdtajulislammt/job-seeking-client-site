@@ -27,7 +27,10 @@ const Navbar = ( {theme,setTheme}) => {
      <li><NavLink to='/alljobs'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
               }>All Jobs</NavLink></li>
-     <li><NavLink to='/appliedjobs'  className={({ isActive, isPending }) =>
+
+    {
+      user?.email && <>
+       <li><NavLink to='/appliedjobs'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
               }>Applied Jobs</NavLink></li>
      <li><NavLink to='/addajobs'  className={({ isActive, isPending }) =>
@@ -36,6 +39,9 @@ const Navbar = ( {theme,setTheme}) => {
      <li><NavLink to='/myjobs'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
               }>My Jobs</NavLink></li>
+      </>
+    }
+
      <li><NavLink to='/blogs'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
               }>Blogs</NavLink></li>

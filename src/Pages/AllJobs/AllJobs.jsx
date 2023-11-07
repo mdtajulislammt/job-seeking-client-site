@@ -11,7 +11,6 @@ import useJobsCategoryData from '../../Hooks/useJobsCategoryData';
 const AllJobs = () => {
      const jobsCategory = useJobsCategoryData()
      const [search, setSearch] = useState('')
-     console.log(search);
      const [searchBtn, setSearchBtn]= useState('');
 
 
@@ -22,9 +21,9 @@ const AllJobs = () => {
     }
       
      return (
-          <div className='px-8 md:px-16 lg:px-20'>
+          <div className='px-8 md:px-16 lg:px-20 dark:bg-[#242323]'>
                
-               <div className=" dark:bg-[#242323] ">
+               <div className="">
       <div className="carousel w-full h-[180px] md:h-[300px] rounded-xl">
         <div className="carousel-item relative w-full">
           

@@ -13,7 +13,7 @@ const Banner = () => {
             <div className=" text-white space-y-3 md:space-y-7 w-2/4 ml-5 mt-10 md:ml-16 md:mt-28 ">
               <h2 className=" text-xl md:text-4xl lg:text-6xl font-bold text-black">
                 
-                Find Your <span className=' text-[#3994e4]'>Dream Job</span> <br /> Here Easy & Fast
+                Find Your <span className=' text-[#378edb]'>Dream Job</span> <br /> Here Easy & Fast
               </h2>
               <p className='text-black text-xs lg:text-base '>
               Discover your dream job quickly and effortlessly with our easy-to-follow guide. Unlock the secrets to streamline your job search and land the perfect opportunity in no time. Your dream career awaits – let's make it happen!

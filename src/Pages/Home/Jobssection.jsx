@@ -9,9 +9,10 @@ import { BiTimeFive } from "react-icons/bi";
 import { CiMoneyBill } from "react-icons/ci";
 import { SlCalender } from "react-icons/sl";
 
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Link } from "react-router-dom";
+// import { motion } from "framer-motion"
 
 
 const Jobssection = () => {
@@ -105,7 +106,7 @@ const Jobssection = () => {
               <div className=" ">
                 <div className=" flex items-center gap-2 justify-end ">
                   <span className=" bg-[#3994e467] rounded-md p-2"><AiOutlineHeart /></span>
-                  <Link to={`/alljobs/${job._id}`}><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">Details</button></Link>
+                  <Link to={`/jobsCategory/${job._id}`}><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">Details</button></Link>
                 </div>
                 <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {job.deadline}</span></p>
                 <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold  text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Posting : {job.deadline}</span></p>
@@ -137,7 +138,7 @@ const Jobssection = () => {
                 <div className=" ">
                   <div className=" flex items-center gap-2 md:justify-end ">
                     <span className=" bg-[#3994e467] rounded-md p-2"><AiOutlineHeart /></span>
-                  <Link to={`/alljobs/${job._id}`}><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">Details</button></Link>
+                  <Link to={`/jobsCategory/${job._id}`}><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">Details</button></Link>
                   </div>
                   <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {job.deadline}</span></p>
                   <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold  text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Posting : {job.deadline}</span></p>
