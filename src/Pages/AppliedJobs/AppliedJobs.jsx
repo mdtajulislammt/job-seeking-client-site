@@ -12,6 +12,7 @@ import { usePDF } from 'react-to-pdf';
 const AppliedJobs = () => {
      const [applyJobs,setApplyJobs] = useState([])
      const [selectJob, setSelectJob] = useState([])
+
      const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
      
 
@@ -21,7 +22,7 @@ const AppliedJobs = () => {
       axios.get('http://localhost:5000/apply')
       .then(res=>setApplyJobs(res.data))
  },[])
-     
+    
      const handleJobsFilter =filter=>{
       if(selectJob){
        if(filter === 'all'){

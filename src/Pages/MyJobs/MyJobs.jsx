@@ -40,8 +40,6 @@ const MyJobs = () => {
        
          fetch(`http://localhost:5000/jobCetagory/${_id}`,{
               method: 'DELETE'
-            
-
          })
          .then(res=>res.json())
          .then(data=>{
@@ -54,7 +52,7 @@ const MyJobs = () => {
                   )
                   const remaining = jobs.filter(job =>job._id !==_id);
                   setJobs(remaining);
-                  // setUpdateJobs(remaining)
+                  
               }
 
          })

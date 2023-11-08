@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import Jobssection from "./Jobssection";
+import TrandingJobs from "./TrandingJobs";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
           <div className=" dark:bg-[#242323]" >
               <Banner></Banner>
               <Jobssection></Jobssection>
+              <TrandingJobs></TrandingJobs>
           </div>
      );
 };

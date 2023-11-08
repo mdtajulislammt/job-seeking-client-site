@@ -47,15 +47,25 @@ const AuthProvider = ({children}) => {
      //current user
      useEffect(()=>{
           const unSubscribe = onAuthStateChanged(auth,currentUser =>{
+               const userEmail = currentUser?.email || user?.email
+               const loggedUser = {email: userEmail}
                 setUser(currentUser);
                //  console.log("Current user: ", currentUser);
                 setLoading(false);
                 //if user exists then issue a token
                 if(currentUser){
-                    const loggedUser = {email: currentUser.email}
+                    
                     axios.post('http://localhost:5000/jwt',loggedUser,{withCredentials: true})
                     .then(res=>{
                          console.log('token Response',res.data)
+                    })
+                }
+                else{
+                    axios.post('http://localhost:5000/logOut', loggedUser,{
+                         withCredentials:true
+                    })
+                    .then(res=>{
+                         console.log(res.data);
                     })
                 }
            })
@@ -69,6 +79,7 @@ const AuthProvider = ({children}) => {
           user,
           loading,
           logOut,
+          setLoading,
           signIn,
           createUser,
           updateUser
