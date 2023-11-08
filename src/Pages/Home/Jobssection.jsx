@@ -25,7 +25,7 @@ const Jobssection = () => {
 
 
      useEffect(()=>{
-          fetch(`http://localhost:5000/jobCetagory`)
+          fetch('http://localhost:5000/jobCetagory')
           .then(res => res.json())
           .then(data => setJobsCategory(data))
      },[])
