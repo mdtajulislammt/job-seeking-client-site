@@ -7,11 +7,15 @@ import { ImLocation2 } from "react-icons/im";
 import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { Tab, TabList, Tabs } from "react-tabs";
+import { usePDF } from 'react-to-pdf';
 
 const AppliedJobs = () => {
      const [applyJobs,setApplyJobs] = useState([])
      const [selectJob, setSelectJob] = useState([])
-     console.log(selectJob);
+     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+     
+
+
 
      useEffect(()=>{
       axios.get('http://localhost:5000/apply')
@@ -96,10 +100,13 @@ const AppliedJobs = () => {
               <div className=" ">
                 <div className=" flex items-center gap-2 justify-end ">
                   <span className=" bg-[#3994e467] rounded-md p-2"><AiOutlineHeart /></span>
-                  <Link ><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">View Details</button></Link>
+                  <Link ><button onClick={() => toPDF()} className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">Resume Download</button></Link>
                 </div>
                 <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {job.deadline}</span></p>
                 <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold  text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Posting : {job.postingDate}</span></p>
+                <div className=" hidden" ref={targetRef}>
+                  {job.link}
+                </div>
               </div>
             </div>
           </div>)}</> 
@@ -128,10 +135,13 @@ const AppliedJobs = () => {
                 <div className=" ">
                   <div className=" flex items-center gap-2 md:justify-end ">
                     <span className=" bg-[#3994e467] rounded-md p-2"><AiOutlineHeart /></span>
-                  <Link ><button  className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">View Details</button></Link>
+                  <Link ><button onClick={() => toPDF()} className=" bg-[#3994e4] text-white p-2  px-7 rounded-md hover:text-black">Resume Download</button></Link>
                   </div>
                   <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {job.deadline}</span></p>
                   <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold  text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Posting : {job.postingDate}</span></p>
+                  <div className=" hidden" ref={targetRef}>
+                  {job.link}
+                </div>
                 </div>
               </div>
             </div>)}</>
@@ -140,7 +150,7 @@ const AppliedJobs = () => {
         }
         
       </div>
-     
+      
       </Tabs>
       </div>
       
