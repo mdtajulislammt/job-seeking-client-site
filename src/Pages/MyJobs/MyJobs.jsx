@@ -10,17 +10,19 @@ import { BiTimeFive } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
   const myJobs= useJobsCategoryData()
   const [jobs,setJobs]= useState([]);
-  // const [updateJobs,setUpdateJobs] = useState(myJobs);
+
+
 
   useEffect(()=>{
     const newMyJobs = myJobs?.filter(job=>job.email === user.email)
     setJobs(newMyJobs)
   },[myJobs, user.email])
-  console.log(jobs);
+
 
 
 
@@ -64,8 +66,10 @@ const MyJobs = () => {
 
 
 
+
+
   return (
-   <div className=' grid lg:grid-cols-2 grid-cols-1 gap-8 py-10 lg:px-28 md:px-20 px-10'>
+   <div className=' grid lg:grid-cols-1 grid-cols-1 gap-8 py-10 lg:px-28 md:px-20 px-10'>
     {
     jobs?.map(job =>
       <div key={job._id} className="card card-side bg-base-100 border-2 dark:bg-gray-400 dark:text-white p-5 border-[#3994e4] shadow-xl ">
@@ -94,6 +98,8 @@ const MyJobs = () => {
           <Link  ><button  className=" bg-[#3994e4] text-white p-2 block  px-7 rounded-md hover:text-black">View Details</button></Link>
           <Link to={`/jobUpdate/${job._id}`} ><button  className=" bg-[#17d667] text-white p-2 block my-3 w-full px-7 rounded-md hover:text-black">Update</button></Link>
           <Link  ><button onClick={()=>handleDelete(job._id)} className=" bg-[#e43939] text-white p-2 block w-full px-7 rounded-md hover:text-black">Delete</button></Link>
+
+          
           </div>
           </div>
           <p className="flex  items-center gap-2 dark:text-white text-gray-500 font-semibold mt-4 text-[12px] md:text-[13px]"><span><SlCalender  className=" text-black text-[8px] md:text-[16px] mb-1 dark:text-white"/></span> <span>Date Line: {job.deadline}</span></p>

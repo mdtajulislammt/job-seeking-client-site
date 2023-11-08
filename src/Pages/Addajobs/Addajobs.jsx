@@ -5,11 +5,13 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Addajobs = () => {
      const { user} = useContext(AuthContext);
-     const [postingDate, setPostingDate] = useState(new Date());
-     const [deadline, setDeadline] = useState(new Date());
+     const [postingDateIn, setPostingDateIn] = useState(new Date());
+     const [deadlineIn, setDeadlineIn] = useState(new Date());
+
      const applicantsNumber = 0
      const email = user.email
      const handleAddJob =(e)=>{
@@ -21,6 +23,9 @@ const Addajobs = () => {
           const salaryRange = form.salaryRange.value;
           const description = form.description.value;
           const img = form.img.value;
+           
+          const postingDate = postingDateIn.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          const deadline = deadlineIn.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
           const newAdd = {jobTitle,email,name,category,deadline,postingDate,applicantsNumber,salaryRange,description,img};
           
@@ -51,7 +56,10 @@ const Addajobs = () => {
 <div className=" p-6  bg-gradient-to-t from-[#439ae7de] to-[#adabab2c] dark:bg-black flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
-     
+    <div className=' flex items-center justify-between'>
+      <h2 className=' text-2xl font-bold  my-3'>Add a Job</h2>
+      <Link to={'/myjobs'} className=' bg-[#3994e4] text-white p-1 rounded-md px-5'>Back</Link>
+     </div>
           
       <div className="bg-[#3994e4] rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
@@ -82,13 +90,13 @@ const Addajobs = () => {
               </div>
               <div className="md:col-span-1">
                 <label htmlFor="city" className=' text-white font-semibold'>Posting Date</label>
-                <DatePicker selected={postingDate} onChange={(date) => setPostingDate(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
+                <DatePicker selected={postingDateIn} onChange={(date) => setPostingDateIn(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
                 
               </div>
               
               <div className="md:col-span-1">
                 <label htmlFor="city" className=' text-white font-semibold'>Date Line</label>
-                <DatePicker selected={deadline} onChange={(date) => setDeadline(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
+                <DatePicker selected={deadlineIn} onChange={(date) => setDeadlineIn(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
               </div>
               
               <div className="md:col-span-5">

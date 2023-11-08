@@ -76,7 +76,8 @@ import JobUpdate from './Pages/MyJobs/JobUpdate';
     },
     {
       path:'/jobUpdate/:id',
-      element:<PrivedRoute><JobUpdate></JobUpdate></PrivedRoute>
+      element:<PrivedRoute><JobUpdate></JobUpdate></PrivedRoute>,
+      // loader:({params})=> fetch(`http://localhost:5000/jobCetagory/${params.id}`)
     },
     {
       path:'/blogs',

@@ -2,13 +2,38 @@ import React, { useContext, useState } from 'react';
 import jobsBanner from '../../assets/addajobBanner.avif'
 import { AuthContext } from '../../Providers/AuthProvider';
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
+import useJobsCategoryData from '../../Hooks/useJobsCategoryData';
+import { useEffect } from 'react';
+
 const JobUpdate = () => {
+
+
+  const [jobsCategory, setJobsCategory] = useState([])
+  const [jobs, setJobs] = useState([])
+  console.log(jobsCategory);
+  const {id} = useParams();
+  console.log(id);
+  useEffect(()=>{
+    fetch(`http://localhost:5000/jobCetagory/`)
+    .then(res => res.json())
+    .then(data => setJobsCategory(data))
+},[])
+
+  useEffect(()=>{
+    const jobs = jobsCategory.find(job => job._id === id)
+    setJobs(jobs)
+},[])
+console.log(jobs);
+
+
+
      const { user} = useContext(AuthContext);
-     const [postingDate, setPostingDate] = useState(new Date());
-     const [deadline, setDeadline] = useState(new Date());
+
+     const [postingDate, setPostingDateIn] = useState(new Date());
+     const [deadlineIn, setDeadlineIn] = useState(new Date());
      const applicantsNumber = 0
      const email = user.email
      const handleAddJob =(e)=>{
@@ -21,10 +46,13 @@ const JobUpdate = () => {
           const description = form.description.value;
           const img = form.img.value;
 
+          const postingDate = deadlineIn.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          const deadline = deadlineIn.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          
           const newUpdate = {jobTitle,email,name,category,deadline,postingDate,applicantsNumber,salaryRange,description,img};
           
              //server 
-     fetch("http://localhost:5000/jobCetagory",{
+     fetch(`http://localhost:5000/jobCetagory/${id}`,{
           method:"PUT",
           headers:{
                "Content-Type": "application/json",
@@ -47,11 +75,16 @@ const JobUpdate = () => {
      }
      return (
           <div>
+            
                 <form onSubmit={handleAddJob}>    
 <div className=" p-6  bg-gradient-to-t from-[#439ae7de] to-[#adabab2c] dark:bg-black flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
      
+     <div className=' flex items-center justify-between'>
+      <h2 className=' text-2xl font-bold  my-3'>Update Job</h2>
+      <Link to={'/myjobs'} className=' bg-[#3994e4] text-white p-1 rounded-md px-5'>Back</Link>
+     </div>
           
       <div className="bg-[#3994e4] rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
@@ -63,7 +96,7 @@ const JobUpdate = () => {
             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
             <div className="md:col-span-5">
                 <label htmlFor="email" className=' text-white font-semibold'>Job Title</label>
-                <input type="name" name="jobTitle" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"/>
+                <input type="name" defaultValue={''} name="jobTitle" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"/>
               </div>
 
               <div className="md:col-span-5">
@@ -82,13 +115,13 @@ const JobUpdate = () => {
               </div>
               <div className="md:col-span-1">
                 <label htmlFor="city" className=' text-white font-semibold'>Posting Date</label>
-                <DatePicker selected={postingDate} onChange={(date) => setPostingDate(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
+                <DatePicker selected={postingDate} onChange={(date) => setPostingDateIn(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
                 
               </div>
               
               <div className="md:col-span-1">
                 <label htmlFor="city" className=' text-white font-semibold'>Date Line</label>
-                <DatePicker selected={deadline} onChange={(date) => setDeadline(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
+                <DatePicker selected={deadlineIn} onChange={(date) => setDeadlineIn(date)} className="h-10  border mt-1 rounded px-4 w-full bg-gray-50" />
               </div>
               
               <div className="md:col-span-5">
@@ -115,7 +148,8 @@ const JobUpdate = () => {
       
               <div className="md:col-span-5 text-right">
                 <div className="inline-flex items-end">
-                  <button className="bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded">Add</button>
+                  <input type="submit" value="Update" className="bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded"/>
+                  
                 </div>
               </div>
 
