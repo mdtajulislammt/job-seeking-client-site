@@ -22,6 +22,7 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
 import AllJobDetails from './Pages/AllJobDetails/AllJobDetails';
 import Jobssection from './Pages/Home/Jobssection';
 import JobsectionDeatls from './Pages/Home/JobsectionDeatls';
+import JobUpdate from './Pages/MyJobs/JobUpdate';
 
 
  
@@ -51,7 +52,6 @@ import JobsectionDeatls from './Pages/Home/JobsectionDeatls';
     {
       path:'/jobDetails/:id',
       element:<PrivedRoute><JobsectionDeatls></JobsectionDeatls></PrivedRoute>,
-      // loader:()=> fetch('http://localhost:5000/apply')
 
     },
     {
@@ -73,6 +73,10 @@ import JobsectionDeatls from './Pages/Home/JobsectionDeatls';
     {
       path:'/myjobs',
       element:<PrivedRoute><MyJobs></MyJobs></PrivedRoute>
+    },
+    {
+      path:'/jobUpdate/:id',
+      element:<PrivedRoute><JobUpdate></JobUpdate></PrivedRoute>
     },
     {
       path:'/blogs',

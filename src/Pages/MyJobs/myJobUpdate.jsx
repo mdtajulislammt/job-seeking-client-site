@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
 
-const Addajobs = () => {
+const myJobUpdate = () => {
      const { user} = useContext(AuthContext);
      const [postingDate, setPostingDate] = useState(new Date());
      const [deadline, setDeadline] = useState(new Date());
@@ -26,7 +26,7 @@ const Addajobs = () => {
           
              //server 
      fetch("http://localhost:5000/jobCetagory",{
-          method:"POST",
+          method:"PUT",
           headers:{
                "Content-Type": "application/json",
           },
@@ -34,13 +34,14 @@ const Addajobs = () => {
      })
      .then(res=>res.json())
      .then(data=>{
-      if(data.insertedId){
-        Swal.fire(
-        'Added!',
-        'Add job Successfully.',
-      'success'
-      )
-      form.reset()
+      if(data.matchedCount){
+          Swal.fire({
+               position: 'center',
+               icon: 'success',
+               title: 'Product Added Success',
+               showConfirmButton: false,
+               timer: 1500
+             })
       }
       
      })   
@@ -133,4 +134,4 @@ const Addajobs = () => {
      );
 };
 
-export default Addajobs;
+export default myJobUpdate;

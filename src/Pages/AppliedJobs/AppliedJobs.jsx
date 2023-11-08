@@ -14,7 +14,7 @@ const AppliedJobs = () => {
           .then(res=>setApplyJobs(res.data))
      },[])
      return (
-          <div className="px-28 grid grid-cols-1 gap-5 py-10">
+          <div className="px-28 grid grid-cols-1 gap-5 py-10 bg-gradient-to-t from-[#439ae7de] to-[#adabab2c]">
                {
                     applyJobs?.map(job =>
                     <div key={job._id} className="card card-side bg-base-100 border-2 dark:bg-gray-400 dark:text-white p-5 border-[#3994e4] shadow-xl ">

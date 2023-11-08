@@ -40,7 +40,16 @@ const AllJobDetails = () => {
       console.log(newJobApply);
 
       if(user.email === email){
-        return alert('owner not apply')
+        Swal.fire({
+          title: "Error !",
+          text: "Do not Apply For Your job Post",
+          imageWidth: 400,
+          imageHeight: 200,
+          icon: 'error',
+        });
+        document.getElementById('my_modal_4').close();
+        form.reset();
+        return 
       }
 
       if(currentTime > specificDate.getTime()){
@@ -52,6 +61,7 @@ const AllJobDetails = () => {
           icon: 'error',
         });
         document.getElementById('my_modal_4').close();
+        form.reset();
         return 
       }
 

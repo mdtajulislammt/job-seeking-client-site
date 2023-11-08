@@ -5,8 +5,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
-
-const Addajobs = () => {
+const JobUpdate = () => {
      const { user} = useContext(AuthContext);
      const [postingDate, setPostingDate] = useState(new Date());
      const [deadline, setDeadline] = useState(new Date());
@@ -22,32 +21,33 @@ const Addajobs = () => {
           const description = form.description.value;
           const img = form.img.value;
 
-          const newAdd = {jobTitle,email,name,category,deadline,postingDate,applicantsNumber,salaryRange,description,img};
+          const newUpdate = {jobTitle,email,name,category,deadline,postingDate,applicantsNumber,salaryRange,description,img};
           
              //server 
      fetch("http://localhost:5000/jobCetagory",{
-          method:"POST",
+          method:"PUT",
           headers:{
                "Content-Type": "application/json",
           },
-          body: JSON.stringify(newAdd),
+          body: JSON.stringify(newUpdate),
      })
      .then(res=>res.json())
      .then(data=>{
-      if(data.insertedId){
-        Swal.fire(
-        'Added!',
-        'Add job Successfully.',
-      'success'
-      )
-      form.reset()
+      if(data.matchedCount){
+          Swal.fire({
+               position: 'center',
+               icon: 'success',
+               title: 'Product Added Success',
+               showConfirmButton: false,
+               timer: 1500
+             })
       }
       
      })   
      }
      return (
           <div>
-           <form onSubmit={handleAddJob}>    
+                <form onSubmit={handleAddJob}>    
 <div className=" p-6  bg-gradient-to-t from-[#439ae7de] to-[#adabab2c] dark:bg-black flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
@@ -133,4 +133,4 @@ const Addajobs = () => {
      );
 };
 
-export default Addajobs;
+export default JobUpdate;
