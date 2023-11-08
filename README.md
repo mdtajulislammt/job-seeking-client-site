@@ -1,8 +1,8 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This site is a job searching website where many types of jobs are available
+- First you need to login without login you can not see any job details
+- After login you can see the details of each job
+- You can post your job here if you want
+- And you can apply for any job you want
+- You can delete your applied job later if you want
+- You can update and delete your posting job as you wish
