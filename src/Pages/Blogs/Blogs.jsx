@@ -2,7 +2,7 @@
 
 const Blogs = () => {
      return (
-          <div className="lg:mx-28 md:mx-20 mx-10">
+          <div className="lg:mx-28 md:mx-20 mx-10 my-10">
               <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200">
                     <div className="collapse-title text-xl font-medium">
                     What is an access token and refresh token? How do they work and where should we
@@ -24,7 +24,8 @@ Refresh Token: Must be stored securely, often in a secure HTTP-only cookie or a 
                     </div>
               <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200">
                     <div className="collapse-title text-xl font-medium">
-                    Focus me to see content
+                    What is express js? What is Nest JS?
+
                     </div>
                     <div className="collapse-content"> 
                     <p className="my-2">Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It simplifies the process of building web servers and APIs in Node.js, making it easier to handle routes, manage HTTP requests and responses, and interact with databases. Express.js is widely used in the Node.js ecosystem for its simplicity and scalability in building web applications.</p>

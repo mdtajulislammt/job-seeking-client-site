@@ -126,7 +126,7 @@ const AllJobDetails = () => {
                   <div className=" mx-auto">
                     <form className=" w-[315px] md:w-[500px] lg:w-full  mt-20 lg:mt-10 lg:ml-40">
                       <label
-                        for="default-search"
+                        htmlFor="default-search"
                         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
                       >
                         Search
