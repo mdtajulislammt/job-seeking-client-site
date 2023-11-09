@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import JobsCuantity from "./JobsCuantity";
 import Jobssection from "./Jobssection";
 import TrandingJobs from "./TrandingJobs";
 
@@ -9,6 +10,7 @@ const Home = () => {
               <Banner></Banner>
               <Jobssection></Jobssection>
               <TrandingJobs></TrandingJobs>
+              <JobsCuantity></JobsCuantity>
           </div>
      );
 };
