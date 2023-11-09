@@ -25,7 +25,7 @@ const Jobssection = () => {
 
 
      useEffect(()=>{
-          fetch('http://localhost:5000/jobCetagory',{withCredentials:true})
+          fetch('https://job-seeking-server-site.vercel.app/jobCetagory',{withCredentials:true})
           .then(res => res.json())
           .then(data => setJobsCategory(data))
      },[])

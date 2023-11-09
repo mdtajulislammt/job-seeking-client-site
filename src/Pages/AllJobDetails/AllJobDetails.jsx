@@ -91,7 +91,7 @@ const AllJobDetails = () => {
     }
 
     //server
-    fetch("http://localhost:5000/apply", {
+    fetch("https://job-seeking-server-site.vercel.app/apply", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

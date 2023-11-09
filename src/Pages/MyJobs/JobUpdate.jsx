@@ -17,7 +17,7 @@ const JobUpdate = () => {
   const {id} = useParams();
   console.log(id);
   useEffect(()=>{
-    fetch(`http://localhost:5000/jobCetagory/`)
+    fetch(`https://job-seeking-server-site.vercel.app/jobCetagory/`)
     .then(res => res.json())
     .then(data => setJobsCategory(data))
 },[])
@@ -52,7 +52,7 @@ console.log(jobs);
           const newUpdate = {jobTitle,email,name,category,deadline,postingDate,applicantsNumber,salaryRange,description,img};
           
              //server 
-     fetch(`http://localhost:5000/jobCetagory/${id}`,{
+     fetch(`https://job-seeking-server-site.vercel.app/jobCetagory/${id}`,{
           method:"PUT",
           headers:{
                "Content-Type": "application/json",

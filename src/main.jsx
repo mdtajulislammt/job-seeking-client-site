@@ -77,7 +77,7 @@ import JobUpdate from './Pages/MyJobs/JobUpdate';
     {
       path:'/jobUpdate/:id',
       element:<PrivedRoute><JobUpdate></JobUpdate></PrivedRoute>,
-      // loader:({params})=> fetch(`http://localhost:5000/jobCetagory/${params.id}`)
+      // loader:({params})=> fetch(`https://job-seeking-server-site.vercel.app/jobCetagory/${params.id}`)
     },
     {
       path:'/blogs',

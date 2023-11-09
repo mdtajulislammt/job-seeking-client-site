@@ -19,7 +19,7 @@ const SingUp = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const accept = e.target.terms.checked;
-    console.log(email, password, name,image, accepte);
+    console.log(email, password, name,image, accept);
     const spacialCharacter = /[!@#$%^&*(),.?":{}|<>]/;
 
     if (password.length < 6) {

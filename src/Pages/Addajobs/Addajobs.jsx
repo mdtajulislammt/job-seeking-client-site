@@ -30,7 +30,7 @@ const Addajobs = () => {
           const newAdd = {jobTitle,email,name,category,deadline,postingDate,applicantsNumber,salaryRange,description,img};
           
              //server 
-     fetch("http://localhost:5000/jobCetagory",{
+     fetch("https://job-seeking-server-site.vercel.app/jobCetagory",{
           method:"POST",
           headers:{
                "Content-Type": "application/json",

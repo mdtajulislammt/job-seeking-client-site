@@ -6,7 +6,7 @@ const useApplyData = () => {
      const [applyData, setApplyData] = useState();
 
   useEffect(()=>{
-     fetch('http://localhost:5000/apply')
+     fetch('https://job-seeking-server-site.vercel.app/apply')
      .then(res=>res.json())
      .then(data=>setApplyData(data))
   },[])
