@@ -37,7 +37,7 @@ Refresh Token: Must be stored securely, often in a secure HTTP-only cookie or a 
                     Focus me to see content
                     </div>
                     <div className="collapse-content"> 
-                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
+                    <p>In my website I used HTML CSS java script material UI tailwind react vite used them for font and designed them and for back end I used mongodb node express and used them for api.etc</p>
                     </div>
                     </div>
           </div>
