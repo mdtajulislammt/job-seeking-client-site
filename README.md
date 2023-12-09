@@ -1,7 +1,7 @@
 ## Website Live Link: https://searching-jobs.web.app/
 ### Backend Code : https://github.com/mdtajulislammt/job-seeking-server-site
 
-#### Thecnology : tailwind,react,express,node.js,mongoDB,firebase
+#### Thecnology : React.js, Node.js, MongoDB, Express, Firebase, Tailwind.
 
 Searching Jobs is a job search platform that connects job
 seekers with potential employers
